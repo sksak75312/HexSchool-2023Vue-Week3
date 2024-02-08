@@ -22,8 +22,12 @@
           <td>{{ product.origin_price }}</td>
           <td>{{ product.price }}</td>
           <td>
-            <span class="text-primary" v-if="product.is_enabled">啟用</span>
-            <span class="text-danger" v-else>未啟用</span>
+            <!-- 修正過後的 code -->
+            <span :class="product.is_enabled ? 'text-primary' : 'text-danger'">
+              {{ product.is_enabled ? '啟用' : '未啟用' }}
+            </span>
+            <!-- <span class="text-primary" v-if="product.is_enabled">啟用</span>
+            <span class="text-danger" v-else>未啟用</span> -->
           </td>
           <td>
             <button type="button" class="btn btn-primary me-3" @click="openModal(product)">
